@@ -271,6 +271,26 @@
             </div>
         </section>
 
+        <section class="artigos" id="artigos" style="background-color:#f4f6f8; padding:80px 20px;">
+    <h2 class="section-title">Artigos</h2>
+    <div class="cards-container">
+        <?php
+        $pdo = new PDO("mysql:host=localhost;dbname=advocacia;charset=utf8", "root", "");
+        $stmt = $pdo->query("SELECT * FROM artigos ORDER BY data_publicacao DESC LIMIT 6");
+
+        while ($artigo = $stmt->fetch()) {
+            echo '<div class="card">';
+            echo '<div class="card-content">';
+            echo '<h3>' . htmlspecialchars($artigo["titulo"]) . '</h3>';
+            echo '<p>' . nl2br(substr($artigo["conteudo"], 0, 200)) . '...</p>';
+            echo '<a href="artigo.php?id=' . $artigo["id"] . '">Ler Mais &rarr;</a>';
+            echo '</div></div>';
+        }
+        ?>
+    </div>
+</section>
+
+
         <section class="contato" id="contato">
             <div class="contato-container">
                 <h2>Entre em Contato</h2>
