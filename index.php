@@ -1,0 +1,131 @@
+<?php
+// conexão com o banco
+try {
+    $pdo = new PDO("mysql:host=localhost;dbname=advocacia;charset=utf8", "root", "");
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+    die("Erro na conexão: " . $e->getMessage());
+}
+?>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vinicius Machado - Advocacia Especializada</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Cormorant+Garamond:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --azul-marinho: #1d2c4d;
+            --dourado: #bfa15f;
+            --cinza-texto: #333d50;
+            --fundo-claro: #f4f6f8;
+        }
+        html { scroll-behavior: smooth; }
+        body {
+            margin: 0; padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            background-color: #ffffff;
+            color: var(--cinza-texto);
+        }
+        header { background-color:#fff; padding:20px 40px; text-align:center; border-bottom:1px solid #e5e7eb; }
+        .logo-machado { font-family:'Cormorant Garamond',serif; font-size:34px; color:var(--azul-marinho); font-weight:700; margin:0; letter-spacing:2px; }
+        .logo-vinicius { font-size:12px; letter-spacing:1px; color:#5a6782; margin:-5px 0 4px 0; }
+        .logo-line { width:90px; height:2px; background-color:var(--dourado); margin:12px auto; }
+        .logo-advocacia { font-size:11px; letter-spacing:2px; color:#5a6782; }
+        .hero { background-image: linear-gradient(rgba(29,44,77,0.7), rgba(29,44,77,0.7)), url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?q=80&w=2070&auto=format&fit=crop'); background-size:cover; background-position:center; color:#fff; text-align:center; padding:100px 20px; }
+        .hero h1 { font-family:'Cormorant Garamond',serif; font-size:48px; margin:0 0 10px 0; font-weight:700; }
+        .hero p { font-size:18px; max-width:700px; margin:0 auto 30px auto; }
+        .hero a { background-color:var(--dourado); color:#fff; padding:15px 35px; border-radius:8px; text-decoration:none; font-weight:700; transition:0.3s; }
+        .hero a:hover { background-color:#a88d4c; }
+        .areas-atuacao { padding:80px 20px; background-color:var(--fundo-claro); }
+        .section-title { text-align:center; font-family:'Cormorant Garamond',serif; font-size:36px; color:var(--azul-marinho); margin-bottom:50px; }
+        .cards-container { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:30px; max-width:1200px; margin:0 auto; }
+        .card { background:#fff; border-radius:8px; box-shadow:0 4px 20px rgba(0,0,0,0.05); overflow:hidden; border-top:4px solid var(--dourado); transition:0.3s; }
+        .card:hover { transform:translateY(-5px); box-shadow:0 8px 30px rgba(0,0,0,0.1); }
+        .card-content { padding:30px; }
+        .card h3 { font-size:22px; color:var(--azul-marinho); margin:0 0 15px 0; }
+        .card p { font-size:16px; line-height:1.6; margin-bottom:25px; }
+        .card a { color:var(--dourado); text-decoration:none; font-weight:700; }
+        .card a:hover { text-decoration:underline; }
+        .contato { padding:80px 20px; background-color:var(--azul-marinho); color:#fff; }
+        .contato-container { max-width:800px; margin:0 auto; text-align:center; }
+        .contato h2 { font-family:'Cormorant Garamond',serif; font-size:36px; margin-bottom:20px; }
+        .contato p { font-size:18px; margin-bottom:40px; }
+        .contato-info a { display:flex; align-items:center; justify-content:center; font-size:18px; color:#fff; margin-bottom:20px; text-decoration:none; transition:0.3s; }
+        .contato-info a:hover { color:var(--dourado); }
+        .contato-info svg { width:24px; height:24px; margin-right:15px; }
+        footer { background-color:#111a2e; color:#a0aec0; text-align:center; padding:20px; font-size:14px; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-machado">MACHADO</div>
+        <div class="logo-vinicius">VINICIUS</div>
+        <div class="logo-line"></div>
+        <div class="logo-advocacia">ADVOCACIA</div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>Defesa Estratégica para Seus Negócios</h1>
+            <p>Atuação especializada na proteção do patrimônio e na reestruturação de dívidas para produtores rurais e empresas.</p>
+            <a href="#contato">Fale Conosco</a>
+        </section>
+
+        <section class="areas-atuacao" id="areas">
+            <h2 class="section-title">Áreas de Atuação</h2>
+            <div class="cards-container">
+                <div class="card"><div class="card-content"><h3>Recuperação Judicial e Extrajudicial</h3><p>Elaboramos e executamos planos de recuperação para reestruturar passivos e proteger o patrimônio.</p><a href="#contato">Saiba Mais &rarr;</a></div></div>
+                <div class="card"><div class="card-content"><h3>Dívidas Rurais</h3><p>Atuamos na negociação e prorrogação de débitos do agronegócio, buscando as melhores condições.</p><a href="#contato">Saiba Mais &rarr;</a></div></div>
+                <div class="card"><div class="card-content"><h3>Contratos Bancários</h3><p>Analisamos contratos bancários para contestar cláusulas abusivas e reduzir dívidas.</p><a href="#contato">Saiba Mais &rarr;</a></div></div>
+                <div class="card"><div class="card-content"><h3>Direito Tributário e Criminal</h3><p>Defesa e consultoria em questões fiscais e crimes contra a ordem tributária.</p><a href="#contato">Saiba Mais &rarr;</a></div></div>
+            </div>
+        </section>
+
+        <section class="artigos" id="artigos" style="background-color:#f4f6f8; padding:80px 20px;">
+            <h2 class="section-title">Artigos</h2>
+            <div class="cards-container">
+            <?php
+                $stmt = $pdo->query("SELECT * FROM artigos ORDER BY data_publicacao DESC LIMIT 6");
+                while ($artigo = $stmt->fetch()) {
+                    echo '<div class="card">';
+                    echo '<div class="card-content">';
+                    echo '<h3>' . htmlspecialchars($artigo["titulo"]) . '</h3>';
+                    echo '<p>' . nl2br(substr($artigo["conteudo"],0,200)) . '...</p>';
+                    echo '<a href="artigo.php?id='.$artigo["id"].'">Ler Mais &rarr;</a>';
+                    echo '</div></div>';
+                }
+            ?>
+            </div>
+        </section>
+
+        <section class="contato" id="contato">
+            <div class="contato-container">
+                <h2>Entre em Contato</h2>
+                <p>Envie sua dúvida ou agende uma consulta. Estamos prontos para oferecer a melhor solução para o seu caso.</p>
+                <div class="contato-info">
+                    <a href="https://wa.me/5545999038175" target="_blank">
+                        <svg fill="currentColor" viewBox="0 0 24 24"><path d="M16.75 13.96c.25.13.41.36.41.63v2.24c0 .4-.23.75-.57.92-.34.17-.74.14-1.06-.08l-2.7-1.93c-.29-.21-.68-.21-.97 0l-2.7 1.93c-.32.22-.72.25-1.06.08a.98.98 0 01-.57-.92v-2.24c0-.27.16-.5.41-.63l2.7-1.4c.29-.15.65-.15.94 0l2.7 1.4zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10c.85 0 1.68-.11 2.48-.31l4.47 1.58c.28.1.58-.06.7-.33.11-.28-.01-.6-.29-.7l-1.9-2.85A9.94 9.94 0 0022 12c0-5.52-4.48-10-10-10z"/></svg>
+                        (45) 99903-8175
+                    </a>
+                    <a href="mailto:viniciusbetymm@gmail.com">
+                        <svg fill="currentColor" viewBox="0 0 24 24"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                        viniciusbetymm@gmail.com
+                    </a>
+                    <a href="https://www.instagram.com/viniciusbmachado" target="_blank">
+                        <svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.85s-.011 3.584-.069 4.85c-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07s-3.584-.012-4.85-.07c-3.252-.148-4.771-1.691-4.919-4.919-.058-1.265-.069-1.645-.069-4.85s.011-3.584.069-4.85c.149-3.225 1.664-4.771 4.919 4.919C8.416 2.175 8.796 2.163 12 2.163zm0 1.802C9.042 3.965 8.71 3.977 7.433 4.03c-2.711.124-3.502.91-3.619 3.62-.054 1.26-.065 1.58-.065 4.35s.011 3.09.065 4.35c.117 2.709.908 3.496 3.619 3.62 1.277.053 1.609.065 4.567.065s3.29-.012 4.567-.065c2.711-.124 3.502-.911 3.619-3.62.054-1.26.065-1.58.065-4.35s-.011-3.09-.065-4.35c-.117-2.71-.908-3.496-3.619-3.62C15.29 3.977 14.958 3.965 12 3.965z"/></svg>
+                        @viniciusbmachado
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 Vinicius Machado Advocacia. Todos os direitos reservados.</p>
+        <p>Rua Ribeirão, 129 – Centro – Capitão Leônidas Marques/PR</p>
+    </footer>
+</body>
+</html>
