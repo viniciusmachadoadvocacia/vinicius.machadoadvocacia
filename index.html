@@ -1,71 +1,302 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Story: Financiamento DIP</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <title>Vinicius Machado - Advocacia Especializada</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Cormorant+Garamond:wght@700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --azul-marinho: #1d2c4d;
+            --dourado: #bfa15f;
+            --cinza-texto: #333d50;
+            --fundo-claro: #f4f6f8;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: 'Lato', sans-serif;
-            background-color: #f3f2ef; /* Um cinza-bege claro para o fundo da página */
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            background-color: #ffffff;
+            color: var(--cinza-texto);
         }
-        .story-title {
-             font-family: 'Merriweather', serif;
+
+        /* Header */
+        header {
+            background-color: #ffffff;
+            padding: 20px 40px;
+            text-align: center;
+            border-bottom: 1px solid #e5e7eb;
         }
-        /* Paleta de Cores */
-        .bg-beige-light { background-color: #fdf5e6; } /* Cor de fundo principal do story (Seashell) */
-        .text-brown-dark { color: #5a422e; } /* Cor principal do texto */
-        .border-brown-accent { border-color: #a07d5b; } /* Cor para detalhes e bordas */
-        .text-brown-accent { color: #a07d5b; }
+
+        .logo-machado {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 34px;
+            color: var(--azul-marinho);
+            font-weight: 700;
+            margin:0;
+            letter-spacing: 2px;
+        }
+
+        .logo-vinicius {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 12px;
+            letter-spacing: 1px;
+            color: #5a6782;
+            margin: -5px 0 4px 0;
+        }
+
+        .logo-line {
+            width: 90px;
+            height: 2px;
+            background-color: var(--dourado);
+            margin: 12px auto;
+        }
+
+        .logo-advocacia {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 11px;
+            letter-spacing: 2px;
+            color: #5a6782;
+        }
+
+        /* Hero Section */
+        .hero {
+            background-image: linear-gradient(rgba(29, 44, 77, 0.7), rgba(29, 44, 77, 0.7)), url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            color: #ffffff;
+            text-align: center;
+            padding: 100px 20px;
+        }
+
+        .hero h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 48px;
+            margin: 0 0 10px 0;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 18px;
+            max-width: 700px;
+            margin: 0 auto 30px auto;
+        }
+
+        .hero a {
+            background-color: var(--dourado);
+            color: #ffffff;
+            padding: 15px 35px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: background-color 0.3s;
+        }
+
+        .hero a:hover {
+            background-color: #a88d4c;
+        }
+
+        /* Areas de Atuação */
+        .areas-atuacao {
+            padding: 80px 20px;
+            background-color: var(--fundo-claro);
+        }
+
+        .section-title {
+            text-align: center;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 36px;
+            color: var(--azul-marinho);
+            margin-bottom: 50px;
+        }
+
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            overflow: hidden;
+            border-top: 4px solid var(--dourado);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+        }
+
+        .card-content {
+            padding: 30px;
+        }
+
+        .card h3 {
+            font-size: 22px;
+            color: var(--azul-marinho);
+            margin: 0 0 15px 0;
+        }
+
+        .card p {
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        .card a {
+            color: var(--dourado);
+            text-decoration: none;
+            font-weight: 700;
+        }
+        
+        .card a:hover {
+            text-decoration: underline;
+        }
+
+        /* Contato */
+        .contato {
+            padding: 80px 20px;
+            background-color: var(--azul-marinho);
+            color: #ffffff;
+        }
+        
+        .contato-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contato h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 36px;
+            color: #ffffff;
+            margin-bottom: 20px;
+        }
+        
+        .contato p {
+            font-size: 18px;
+            margin-bottom: 40px;
+        }
+        
+        .contato-info a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            color: #ffffff;
+            margin-bottom: 20px;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contato-info a:hover {
+            color: var(--dourado);
+        }
+        
+        .contato-info svg {
+            width: 24px;
+            height: 24px;
+            margin-right: 15px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #111a2e;
+            color: #a0aec0;
+            text-align: center;
+            padding: 20px;
+            font-size: 14px;
+        }
     </style>
 </head>
-<body class="bg-gray-200 flex justify-center items-center min-h-screen">
+<body>
 
-    <!-- Container do celular -->
-    <div class="w-full max-w-sm h-[85vh] max-h-[700px] bg-black rounded-3xl shadow-2xl overflow-hidden relative border-4 border-gray-800">
-        
-        <!-- Story Único -->
-        <div class="story w-full h-full bg-beige-light flex flex-col justify-between p-6">
-            
-            <!-- Header com a Logo -->
-            <header class="w-full">
-                <img src="https://storage.googleapis.com/gemini-prod-us-west1-423523094628/uploaded/image_e0979e.png-783e89e5-0ca6-4d30-9159-633fe2857d0a" alt="Logo Machado Vinicius Advocacia" class="h-20 mx-auto">
-            </header>
+    <header>
+        <div class="logo-machado">MACHADO</div>
+        <div class="logo-vinicius">VINICIUS</div>
+        <div class="logo-line"></div>
+        <div class="logo-advocacia">ADVOCACIA</div>
+    </header>
 
-            <!-- Conteúdo Principal -->
-            <main class="flex-grow flex flex-col justify-center items-center text-center">
-                <h1 class="story-title text-brown-dark text-2xl font-bold mb-3">O que é Financiamento DIP?</h1>
-                <p class="text-brown-dark text-sm mb-5">
-                    "Debtor-in-Possession" é um crédito essencial para empresas em <strong>Recuperação Judicial</strong>, permitindo a obtenção de recursos para manter a operação e viabilizar o plano de reestruturação.
-                </p>
+    <main>
+        <section class="hero">
+            <h1>Defesa Estratégica para Seus Negócios</h1>
+            <p>Atuação especializada na proteção do patrimônio e na reestruturação de dívidas para produtores rurais e empresas.</p>
+            <a href="#contato">Fale Conosco</a>
+        </section>
 
-                <div class="w-full text-left space-y-3 border-t-2 border-brown-accent pt-4">
-                    <h2 class="font-bold text-brown-dark text-center mb-2">Principais Benefícios:</h2>
-                    <div class="flex items-center">
-                        <svg class="w-5 h-5 text-brown-accent mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
-                        <span class="text-brown-dark text-sm"><strong>Crédito com prioridade de pagamento,</strong> atraindo investidores.</span>
-                    </div>
-                     <div class="flex items-center">
-                        <svg class="w-5 h-5 text-brown-accent mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6-4a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                        <span class="text-brown-dark text-sm">Capital de giro para <strong>manter as operações.</strong></span>
-                    </div>
-                     <div class="flex items-center">
-                       <svg class="w-5 h-5 text-brown-accent mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6-4a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                        <span class="text-brown-dark text-sm">Recursos para <strong>implementar o plano de recuperação.</strong></span>
+        <section class="areas-atuacao" id="areas">
+            <h2 class="section-title">Áreas de Atuação</h2>
+            <div class="cards-container">
+                <div class="card">
+                    <div class="card-content">
+                        <h3>Recuperação Judicial e Extrajudicial</h3>
+                        <p>Elaboramos e executamos planos de recuperação para reestruturar passivos e proteger o patrimônio, garantindo a continuidade da atividade empresarial ou rural.</p>
+                        <a href="#contato">Saiba Mais &rarr;</a>
                     </div>
                 </div>
-            </main>
+                <div class="card">
+                    <div class="card-content">
+                        <h3>Dívidas Rurais</h3>
+                        <p>Atuamos na negociação e prorrogação de débitos do agronegócio, buscando as melhores condições e prazos com base na legislação específica para o setor.</p>
+                        <a href="#contato">Saiba Mais &rarr;</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-content">
+                        <h3>Contratos Bancários</h3>
+                        <p>Analisamos detalhadamente contratos para identificar e contestar cláusulas abusivas e juros excessivos, buscando a redução da dívida de forma técnica.</p>
+                        <a href="#contato">Saiba Mais &rarr;</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-content">
+                        <h3>Direito Tributário e Criminal</h3>
+                        <p>Oferecemos defesa especializada em crimes contra a ordem tributária e consultoria para regularização fiscal, protegendo você de autuações e sanções.</p>
+                        <a href="#contato">Saiba Mais &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-            <!-- Footer / CTA -->
-            <footer class="w-full text-center">
-                <p class="text-brown-dark font-bold text-sm">Uma ferramenta estratégica para a preservação da empresa.</p>
-                <p class="text-brown-accent text-xs">machadovinicius.com</p>
-            </footer>
+        <section class="contato" id="contato">
+            <div class="contato-container">
+                <h2>Entre em Contato</h2>
+                <p>Envie sua dúvida ou agende uma consulta. Estamos prontos para oferecer a melhor solução para o seu caso.</p>
+                <div class="contato-info">
+                    <a href="https://wa.me/5545999038175" target="_blank">
+                        <svg fill="currentColor" viewBox="0 0 24 24"><path d="M16.75 13.96c.25.13.41.36.41.63v2.24c0 .4-.23.75-.57.92-.34.17-.74.14-1.06-.08l-2.7-1.93c-.29-.21-.68-.21-.97 0l-2.7 1.93c-.32.22-.72.25-1.06.08a.98.98 0 01-.57-.92v-2.24c0-.27.16-.5.41-.63l2.7-1.4c.29-.15.65-.15.94 0l2.7 1.4zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10c.85 0 1.68-.11 2.48-.31l4.47 1.58c.28.1.58-.06.7-.33.11-.28-.01-.6-.29-.7l-1.9-2.85A9.94 9.94 0 0022 12c0-5.52-4.48-10-10-10z"/></svg>
+                        (45) 99903-8175
+                    </a>
+                    <a href="mailto:viniciusbetymm@gmail.com">
+                        <svg fill="currentColor" viewBox="0 0 24 24"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                        viniciusbetymm@gmail.com
+                    </a>
+                    <a href="https://www.instagram.com/viniciusbmachado" target="_blank">
+                        <svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.85s-.011 3.584-.069 4.85c-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07s-3.584-.012-4.85-.07c-3.252-.148-4.771-1.691-4.919-4.919-.058-1.265-.069-1.645-.069-4.85s.011-3.584.069-4.85c.149-3.225 1.664-4.771 4.919 4.919C8.416 2.175 8.796 2.163 12 2.163zm0 1.802C9.042 3.965 8.71 3.977 7.433 4.03c-2.711.124-3.502.91-3.619 3.62-.054 1.26-.065 1.58-.065 4.35s.011 3.09.065 4.35c.117 2.709.908 3.496 3.619 3.62 1.277.053 1.609.065 4.567.065s3.29-.012 4.567-.065c2.711-.124 3.502-.911 3.619-3.62.054-1.26.065-1.58.065-4.35s-.011-3.09-.065-4.35c-.117-2.71-.908-3.496-3.619-3.62C15.29 3.977 14.958 3.965 12 3.965zM12 7.838a4.162 4.162 0 100 8.324 4.162 4.162 0 000-8.324zM12 14.5a2.5 2.5 0 110-5 2.5 2.5 0 010 5zm6.406-7.378a.96.96 0 100-1.92.96.96 0 000 1.92z"/></svg>
+                        @viniciusbmachado
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
 
-        </div>
-
-    </div>
+    <footer>
+        <p>&copy; 2025 Vinicius Machado Advocacia. Todos os direitos reservados.</p>
+        <p>Rua Ribeirão, 129 – Centro – Capitão Leônidas Marques/PR</p>
+    </footer>
 
 </body>
+</html>
